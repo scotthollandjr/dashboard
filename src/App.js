@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import Moment from 'react-moment';
+import Arrival from './components/arrival/arrival.js';
 import './App.css';
-var parseString = require('xml2js').parseString;
 
 class App extends Component {
   constructor() {
@@ -32,9 +31,7 @@ class App extends Component {
     fetch(trimetUrl)
     .then((resp) => resp.json())
     .then((data) => {
-      let arrivals;
-      console.log(data.resultSet)
-      arrivals = data.resultSet.arrival;
+      let arrivals = data.resultSet.arrival;
       this.setState({arrivals: arrivals});
       console.log("arrivals", this.state.arrivals)
     })
@@ -60,20 +57,9 @@ class App extends Component {
         <div className="App-intro">
           <h1>BUS</h1>
           <div>
-            <h3>17</h3>
-            {this.state.arrivals.map((arrival, index) => {
-              if (arrival.route === 17)
-              return  <p key={index}>
-                        <Moment fromNow>{arrival.scheduled}</Moment>
-                      </p>
-            })}
-            <h3>77</h3>
-            {this.state.arrivals.map((arrival, index) => {
-              if (arrival.route === 77)
-              return  <p key={index}>
-                        <Moment fromNow>{arrival.scheduled}</Moment>
-                      </p>
-            })}
+            {this.state.arrivals.map((arrival, index) => (
+              <Arrival arrival={arrival} key={index} />
+            ))}
           </div>
           <h1>WEATHER</h1>
           <p>{this.state.weather}</p>

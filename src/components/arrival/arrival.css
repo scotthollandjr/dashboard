@@ -1,0 +1,33 @@
+.arrivalCard {
+  margin: 5px auto;
+  width: 150px;
+  height: 50px;
+  background: #f9f9f9;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.green {
+  background: rgba(0, 158, 0, 0.5);
+}
+
+.yellow {
+  background: rgba(255, 193, 7, 0.5);
+}
+
+.red {
+  background: rgba(244, 67, 54, 0.5);
+}
+
+.route {
+  display: flex;
+  align-items: center;
+  padding: 0px 8px;
+  background: aliceblue;
+  height: 100%;
+}
+
+.time {
+  padding: 0px 8px;
+}
